@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -55,6 +56,38 @@ public class TestCases1To5 {
         WebElement actual = driver.findElement(By.xpath("//small[@data-bv-for='lastname'][2]"));
        //Assert.assertEquals(actual.getText(), expected);
         Assert.assertTrue(actual.isDisplayed());
+    }
+
+    @Test
+    public void test5(){
+        WebElement firstName = driver.findElement(By.name("firstname"));
+        firstName.sendKeys("John");
+        WebElement lastName = driver.findElement(By.name("lastname"));
+        lastName.sendKeys("Smith");
+        WebElement username = driver.findElement(By.name("username"));
+        username.sendKeys("johnsmith");
+        WebElement email = driver.findElement(By.name("email"));
+        email.sendKeys("johnsmith@gmail.com");
+        WebElement password = driver.findElement(By.name("password"));
+        password.sendKeys("JohnSmithPassword");
+        WebElement phoneNumber = driver.findElement(By.name("phone"));
+        phoneNumber.sendKeys("240-123-4567");
+        WebElement maleRadioButton = driver.findElement(By.cssSelector("input[value='male']"));
+        maleRadioButton.click();
+        WebElement dob = driver.findElement(By.name("birthday"));
+        dob.sendKeys("03/27/2000");
+        driver.executeScript("window.scrollBy(0, 250)");
+        Select department = new Select(driver.findElement(By.name("department")));
+        department.selectByVisibleText("Department of Agriculture");
+        Select jobTitle = new Select(driver.findElement(By.name("job_title")));
+        jobTitle.selectByVisibleText("Project Manager");
+        WebElement javaButton = driver.findElement(By.id("inlineCheckbox2"));
+        javaButton.click();
+        WebElement signUpButton = driver.findElement(By.id("wooden_spoon"));
+        signUpButton.click();
+        BrowserUtils.wait(2);
+        WebElement actual = driver.findElement(By.xpath("//p"));
+        Assert.assertEquals(actual.getText(), "You've successfully completed registration!");
     }
 
     @BeforeMethod
