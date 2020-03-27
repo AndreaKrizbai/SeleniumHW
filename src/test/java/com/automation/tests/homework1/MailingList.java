@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class MailingList {
 
     @Test
-    public void SignUpTest() {
+    public void signUpTest() {
         WebDriverManager.chromedriver().version("79").setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -51,14 +51,5 @@ public class MailingList {
         BrowserUtils.wait(2);
         driver.quit();
     }
-
-
-
-
-
-
-
-
-
 
 }
