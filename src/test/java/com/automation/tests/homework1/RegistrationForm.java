@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TestCases1To5 {
+public class RegistrationForm {
     private RemoteWebDriver driver;
 
     @Test
